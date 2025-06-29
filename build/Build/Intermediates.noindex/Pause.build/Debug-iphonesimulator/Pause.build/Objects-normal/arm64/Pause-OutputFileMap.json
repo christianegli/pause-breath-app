@@ -1,0 +1,28 @@
+{
+  "" : {
+    "diagnostics" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/Pause-master.dia",
+    "emit-module-dependencies" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/Pause-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/Pause-master-emit-module.dia",
+    "swift-dependencies" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/Pause-master.swiftdeps"
+  },
+  "/Users/christian.egli/Documents/01_DEV/Pause/Pause/ContentView.swift" : {
+    "const-values" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/christian.egli/Documents/01_DEV/Pause/Pause/PauseApp.swift" : {
+    "const-values" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/PauseApp.swiftconstvalues",
+    "dependencies" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/PauseApp.d",
+    "diagnostics" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/PauseApp.dia",
+    "index-unit-output-path" : "/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/PauseApp.o",
+    "llvm-bc" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/PauseApp.bc",
+    "object" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/PauseApp.o",
+    "swift-dependencies" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/PauseApp.swiftdeps",
+    "swiftmodule" : "/Users/christian.egli/Documents/01_DEV/Pause/build/Build/Intermediates.noindex/Pause.build/Debug-iphonesimulator/Pause.build/Objects-normal/arm64/PauseApp~partial.swiftmodule"
+  }
+}

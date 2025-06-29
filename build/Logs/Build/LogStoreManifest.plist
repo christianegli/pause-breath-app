@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>11</integer>
+	<key>logs</key>
+	<dict>
+		<key>3F3B75FB-FEE7-4E74-84D2-7AFB289AFAED</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>3F3B75FB-FEE7-4E74-84D2-7AFB289AFAED.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>1</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pause project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pause</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project Pause with scheme Pause</string>
+			<key>timeStartedRecording</key>
+			<real>772917665.64617896</real>
+			<key>timeStoppedRecording</key>
+			<real>772917673.33238602</real>
+			<key>title</key>
+			<string>Building project Pause with scheme Pause</string>
+			<key>uniqueIdentifier</key>
+			<string>3F3B75FB-FEE7-4E74-84D2-7AFB289AFAED</string>
+		</dict>
+		<key>F4287B3C-DA09-454F-88C6-C01AFED6BD4B</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>F4287B3C-DA09-454F-88C6-C01AFED6BD4B.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>1</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Pause project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Pause</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building project Pause with scheme Pause</string>
+			<key>timeStartedRecording</key>
+			<real>772917710.69627595</real>
+			<key>timeStoppedRecording</key>
+			<real>772917711.29028499</real>
+			<key>title</key>
+			<string>Building project Pause with scheme Pause</string>
+			<key>uniqueIdentifier</key>
+			<string>F4287B3C-DA09-454F-88C6-C01AFED6BD4B</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

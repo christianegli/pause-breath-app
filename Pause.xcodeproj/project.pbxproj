@@ -1,0 +1,138 @@
+
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8D1107310486CEB800E47090 /* PauseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1107300486CEB800E47090 /* PauseApp.swift */; };
+		8D1107330486CEB800E47090 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8D11072F0486CEB800E47090 /* Pause.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pause.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107300486CEB800E47090 /* PauseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseApp.swift; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8D1107340486CEB800E47090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Pause/Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		8D11072A0486CEB800E47090 = {isa = PBXGroup; children = ( 8D11072E0486CEB800E47090 /* Pause */, 8D11072D0486CEB800E47090 /* Products */ ); sourceTree = "<group>"; };
+		8D11072D0486CEB800E47090 /* Products */ = {isa = PBXGroup; children = ( 8D11072F0486CEB800E47090 /* Pause.app */ ); name = Products; sourceTree = "<group>"; };
+		8D11072E0486CEB800E47090 /* Pause */ = {isa = PBXGroup; children = ( 8D1107300486CEB800E47090 /* PauseApp.swift */, 8D1107320486CEB800E47090 /* ContentView.swift */, 8D1107340486CEB800E47090 /* Assets.xcassets */ ); path = Pause; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D11072C0486CEB800E47090 /* Pause */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D1107370486CEB800E47090 /* Build configuration list for PBXNativeTarget "Pause" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Sources */,
+				8D11072B0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pause;
+			productName = Pause;
+			productReference = 8D11072F0486CEB800E47090 /* Pause.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8D1107280486CEB800E47090 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+			};
+			buildConfigurationList = 8D1107350486CEB800E47090 /* Build configuration list for PBXProject "Pause" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8D11072A0486CEB800E47090;
+			productRefGroup = 8D11072D0486CEB800E47090 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D11072C0486CEB800E47090 /* Pause */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1107330486CEB800E47090 /* ContentView.swift in Sources */,
+				8D1107310486CEB800E47090 /* PauseApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8D1107360486CEB800E47090 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Pause/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Pause;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8D1107380486CEB800E47090 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "Pause/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Pause;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8D1107350486CEB800E47090 /* Build configuration list for PBXProject "Pause" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D1107360486CEB800E47090 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8D1107370486CEB800E47090 /* Build configuration list for PBXNativeTarget "Pause" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D1107380486CEB800E47090 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8D1107280486CEB800E47090 /* Project object */;
+}
