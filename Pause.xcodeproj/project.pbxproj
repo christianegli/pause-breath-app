@@ -10,6 +10,10 @@
 /* Begin PBXBuildFile section */
 		8D1107310486CEB800E47090 /* PauseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1107300486CEB800E47090 /* PauseApp.swift */; };
 		8D1107330486CEB800E47090 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* ContentView.swift */; };
+		8D1107390486CEB800E47090 /* BreathingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11073A0486CEB800E47090 /* BreathingSession.swift */; };
+		8D11073B0486CEB800E47090 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11073C0486CEB800E47090 /* TimerService.swift */; };
+		8D11073D0486CEB800E47090 /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D11073E0486CEB800E47090 /* SessionViewModel.swift */; };
+		8D11073F0486CEB800E47090 /* SessionViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1107400486CEB800E47090 /* SessionViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,12 +21,16 @@
 		8D1107300486CEB800E47090 /* PauseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseApp.swift; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8D1107340486CEB800E47090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Pause/Assets.xcassets; sourceTree = "<group>"; };
+		8D11073A0486CEB800E47090 /* BreathingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingSession.swift; sourceTree = "<group>"; };
+		8D11073C0486CEB800E47090 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		8D11073E0486CEB800E47090 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		8D1107400486CEB800E47090 /* SessionViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		8D11072A0486CEB800E47090 = {isa = PBXGroup; children = ( 8D11072E0486CEB800E47090 /* Pause */, 8D11072D0486CEB800E47090 /* Products */ ); sourceTree = "<group>"; };
 		8D11072D0486CEB800E47090 /* Products */ = {isa = PBXGroup; children = ( 8D11072F0486CEB800E47090 /* Pause.app */ ); name = Products; sourceTree = "<group>"; };
-		8D11072E0486CEB800E47090 /* Pause */ = {isa = PBXGroup; children = ( 8D1107300486CEB800E47090 /* PauseApp.swift */, 8D1107320486CEB800E47090 /* ContentView.swift */, 8D1107340486CEB800E47090 /* Assets.xcassets */ ); path = Pause; sourceTree = "<group>"; };
+		8D11072E0486CEB800E47090 /* Pause */ = {isa = PBXGroup; children = ( 8D1107300486CEB800E47090 /* PauseApp.swift */, 8D1107320486CEB800E47090 /* ContentView.swift */, 8D11073A0486CEB800E47090 /* BreathingSession.swift */, 8D11073C0486CEB800E47090 /* TimerService.swift */, 8D11073E0486CEB800E47090 /* SessionViewModel.swift */, 8D1107400486CEB800E47090 /* SessionViews.swift */, 8D1107340486CEB800E47090 /* Assets.xcassets */ ); path = Pause; sourceTree = "<group>"; };
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -75,6 +83,10 @@
 			files = (
 				8D1107330486CEB800E47090 /* ContentView.swift in Sources */,
 				8D1107310486CEB800E47090 /* PauseApp.swift in Sources */,
+				8D1107390486CEB800E47090 /* BreathingSession.swift in Sources */,
+				8D11073B0486CEB800E47090 /* TimerService.swift in Sources */,
+				8D11073D0486CEB800E47090 /* SessionViewModel.swift in Sources */,
+				8D11073F0486CEB800E47090 /* SessionViews.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

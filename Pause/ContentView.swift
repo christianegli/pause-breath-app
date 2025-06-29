@@ -3,17 +3,17 @@ import SwiftUI
 /**
  * ContentView: Main entry point for the Pause breathing app
  * 
- * RATIONALE: Implements the core concept of a serene, minimal interface
- * with a pulsating circle and single call-to-action button. This provides
- * the foundation for the complete breathing exercise flow.
+ * Now integrated with SessionViewModel to orchestrate the complete
+ * breathing exercise flow from main screen through completion.
  * 
  * DESIGN DECISIONS:
  * - Single button approach eliminates cognitive load
  * - Pulsating animation suggests breathing rhythm
  * - Muted color palette promotes calm focus
- * - Large touch target optimized for ease of use during relaxation
+ * - State-driven UI that adapts to session progress
  */
 struct ContentView: View {
+    @StateObject private var sessionViewModel = SessionViewModel()
     @State private var isAnimating = false
     
     var body: some View {
@@ -29,76 +29,30 @@ struct ContentView: View {
             )
             .ignoresSafeArea()
             
-            VStack(spacing: 60) {
-                // App title
-                Text("Pause")
-                    .font(.system(size: 32, weight: .light, design: .rounded))
-                    .foregroundColor(.primary.opacity(0.8))
-                    .padding(.top, 60)
-                
-                Spacer()
-                
-                // Pulsating circle - core visual element
-                ZStack {
-                    Circle()
-                        .fill(
-                            RadialGradient(
-                                gradient: Gradient(colors: [
-                                    Color.blue.opacity(0.3),
-                                    Color.blue.opacity(0.1)
-                                ]),
-                                center: .center,
-                                startRadius: 20,
-                                endRadius: 100
-                            )
-                        )
-                        .frame(width: 200, height: 200)
-                        .scaleEffect(isAnimating ? 1.1 : 0.9)
-                        .opacity(isAnimating ? 0.8 : 0.4)
-                        .animation(
-                            Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true),
-                            value: isAnimating
-                        )
-                    
-                    // Inner circle for visual depth
-                    Circle()
-                        .fill(Color.blue.opacity(0.2))
-                        .frame(width: 120, height: 120)
-                        .scaleEffect(isAnimating ? 0.8 : 1.0)
-                        .animation(
-                            Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true),
-                            value: isAnimating
-                        )
+            // State-driven view content
+            Group {
+                switch sessionViewModel.sessionState {
+                case .ready:
+                    MainScreenView(sessionViewModel: sessionViewModel, isAnimating: $isAnimating)
+                case .breathing:
+                    BreathingView(sessionViewModel: sessionViewModel)
+                case .transitioning:
+                    TransitionView(sessionViewModel: sessionViewModel)
+                case .holding:
+                    HoldView(sessionViewModel: sessionViewModel)
+                case .completed:
+                    ResultsView(sessionViewModel: sessionViewModel)
                 }
-                .onAppear {
-                    isAnimating = true
-                }
-                
-                Spacer()
-                
-                // Main call-to-action button
-                Button(action: {
-                    // TODO: Navigate to breathing preparation view
-                    // This will be implemented in Task 2
-                }) {
-                    Text("Begin Your Pause")
-                        .font(.system(size: 20, weight: .medium, design: .rounded))
-                        .foregroundColor(.white)
-                        .frame(width: 240, height: 54)
-                        .background(
-                            RoundedRectangle(cornerRadius: 27)
-                                .fill(Color.blue.opacity(0.8))
-                        )
-                        .shadow(color: .blue.opacity(0.3), radius: 8, x: 0, y: 4)
-                }
-                .padding(.bottom, 80)
-                
-                // Subtle hint text
-                Text("Take a moment to breathe")
-                    .font(.system(size: 16, weight: .light, design: .rounded))
-                    .foregroundColor(.secondary.opacity(0.7))
-                    .padding(.bottom, 40)
             }
+        }
+        .onAppear {
+            isAnimating = true
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+            sessionViewModel.handleAppBackground()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+            sessionViewModel.handleAppForeground()
         }
     }
 }
