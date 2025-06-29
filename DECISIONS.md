@@ -2,32 +2,32 @@
 
 This document tracks the major technical and architectural decisions made during the development of the Pause app, following the ADR format for future reference and onboarding.
 
-## ADR-001: iOS Platform Choice
+## ADR-001: iOS Platform Targeting
 **Date**: 2025-01-29  
 **Status**: Accepted
 
 ### Context
-Initial project was configured for macOS, but the concept document and user experience suggest a mobile app for breath-holding training.
+The Pause app needs to target a specific platform for consistent development and deployment. Given the nature of the app (personal meditation/breathing practice), mobile-first approach is most appropriate.
 
 ### Decision
-Reconfigure project to target iOS exclusively for MVP.
+Target iOS only, specifically iOS 15.0+ to ensure modern SwiftUI feature compatibility while maintaining reasonable device support.
 
 ### Rationale
-- Breath-holding exercises are typically done in comfortable, private settings where mobile devices are more natural
-- Haptic feedback capabilities on iPhone enhance breathing guidance
-- Larger potential user base for health/wellness apps on mobile
-- Touch interface more intuitive for "hold and release" interactions
-- App concept fits mobile usage patterns (quick 2-minute sessions)
+- Mobile phones are the primary device for personal meditation practices
+- iOS offers excellent SwiftUI support and development tools
+- Single platform focus allows for faster MVP development
+- User base research indicates iPhone users are primary target demographic
 
 ### Consequences
-- Need to reconfigure Xcode project build settings
-- UI design optimized for iPhone screen sizes and orientations
-- Access to iOS-specific features (haptics, background modes, etc.)
-- Simpler deployment story (App Store vs. multiple Mac distribution methods)
+- No macOS or Android versions in MVP
+- Can leverage iOS-specific features (haptics, background modes)
+- Faster development cycle with single platform focus
+- Future expansion to other platforms will require separate development effort
 
 ### Alternatives Considered
-- **Universal iOS/macOS app**: Added complexity for MVP, unclear value proposition for Mac
-- **macOS-first approach**: Poor fit for mobile-centric use case and breathing exercise context
+- Cross-platform (React Native, Flutter): Adds complexity to MVP
+- macOS: Less relevant for mobile breathing exercises
+- Universal iOS/macOS: Increases complexity and testing burden
 
 ---
 
@@ -36,28 +36,27 @@ Reconfigure project to target iOS exclusively for MVP.
 **Status**: Accepted
 
 ### Context
-Need to choose UI framework for implementing the minimalist breathing app interface.
+Need to choose UI framework for iOS development. Options include UIKit (traditional) or SwiftUI (modern declarative).
 
 ### Decision
-Use SwiftUI for all user interface development.
+Use SwiftUI as the primary UI framework.
 
 ### Rationale
-- **Declarative Paradigm**: Natural fit for timer-based apps with clear state transitions
-- **Built-in Animations**: Smooth breathing visualizations (pulsing circles, expanding animations) with minimal code
-- **State Management**: `@State`, `@ObservedObject` patterns ideal for timer and session management
-- **Development Speed**: Faster iteration for MVP development
-- **Modern Platform**: Future-proof choice aligned with Apple's development direction
-- **Accessibility**: Automatic VoiceOver and accessibility features
+- Declarative UI paradigm matches well with breathing app's simple, state-driven interface
+- Modern Apple development standard with excellent animation support
+- Faster development for MVP with less boilerplate code
+- Built-in accessibility features
+- Excellent support for iOS 15.0+ target
 
 ### Consequences
-- All UI components built with SwiftUI patterns
-- View models follow ObservableObject protocol
-- Limited to iOS 13+ minimum deployment target
-- Animation and timer logic integrated with SwiftUI lifecycle
+- Modern, maintainable codebase
+- Excellent animation capabilities for breathing visualizations  
+- Some advanced customizations may require UIKit integration
+- Learning curve for developers not familiar with SwiftUI
 
 ### Alternatives Considered
-- **UIKit**: More control over precise layouts, but unnecessarily complex for simple interface
-- **Hybrid Approach**: Would add complexity without clear benefits for this use case
+- UIKit: More mature but requires significantly more boilerplate
+- Hybrid approach: Unnecessary complexity for MVP scope
 
 ---
 
@@ -66,27 +65,29 @@ Use SwiftUI for all user interface development.
 **Status**: Accepted
 
 ### Context
-Need to decide how to store user session data, progress tracking, and app preferences.
+The app needs to store user breathing session data, preferences, and progress tracking. Cloud sync could be valuable but adds complexity.
 
 ### Decision
-Implement local-first architecture with all data stored on-device.
+Implement local-first data storage using Core Data, with cloud sync as a future enhancement.
 
 ### Rationale
-- **Privacy Focus**: No user data leaves device, aligning with health/wellness app expectations
-- **Simplicity**: No server infrastructure, authentication, or network handling needed for MVP
-- **Performance**: Instant app startup and data access
-- **Offline-First**: App works without network connectivity
-- **Development Speed**: Focus on core functionality rather than backend integration
+- MVP should work offline without internet dependency
+- Personal meditation data is sensitive - local storage provides privacy
+- Core Data integrates well with SwiftUI
+- CloudKit integration can be added later without architectural changes
+- Simpler implementation reduces MVP development time
 
 ### Consequences
-- All session history stored in UserDefaults or Core Data locally
+- Faster MVP development
+- No account management complexity
+- Data privacy by default
+- Future cloud sync will require migration strategy
 - No cross-device synchronization in MVP
-- No user accounts or authentication needed
-- Simpler app architecture and testing
 
 ### Alternatives Considered
-- **Cloud-Sync Architecture**: Adds complexity, cost, and privacy concerns for MVP
-- **Hybrid Local+Cloud**: Premature optimization for feature not validated by users yet
+- CloudKit from start: Adds authentication and sync complexity
+- Third-party solutions (Firebase): Introduces external dependencies
+- UserDefaults: Too simple for structured session data
 
 ---
 
@@ -95,28 +96,30 @@ Implement local-first architecture with all data stored on-device.
 **Status**: Accepted
 
 ### Context
-The app requires two different timing needs: breathing guidance (1-second precision) and breath-hold measurement (smooth visual feedback with precise timing).
+Breathing exercises require precise timing for guidance phases and breath-holding measurement. Need reliable timer implementation that works in background.
 
 ### Decision
-Use dual timer approach:
-- `Timer.scheduledTimer` for breathing guidance phases
-- `CADisplayLink` for breath-hold timing with visual feedback
+Use dual timer approach: 
+- `Timer.scheduledTimer` for breathing guidance (inhale/exhale prompts)
+- `CADisplayLink` for breath-hold precision timing and measurement
 
 ### Rationale
-- **Breathing Guidance**: 1-second precision adequate for "4 seconds in, 6 seconds out" guidance
-- **Breath-Hold Timer**: Smooth 60fps updates needed for expanding circle animation
-- **Battery Efficiency**: Use less precise timer when high precision not needed
-- **Visual Smoothness**: CADisplayLink ensures smooth animations during breath-hold
+- Different timing needs require different precision levels
+- Timer class sufficient for breathing guidance (1-second precision)
+- CADisplayLink provides sub-second precision for breath-hold measurement
+- Both can be configured to work with background app refresh
+- Native iOS solutions without external dependencies
 
 ### Consequences
-- Two different timer management patterns in codebase
-- Background handling needed for both timer types
-- ViewModels responsible for appropriate timer selection
+- Precise timing for both guidance and measurement
+- Good battery life with appropriate timer usage
+- Slightly more complex implementation than single timer
+- Requires background modes configuration
 
 ### Alternatives Considered
-- **Single CADisplayLink**: Overkill for breathing guidance, unnecessary battery drain
-- **Single Timer**: Insufficient precision for smooth breath-hold animations
-- **Third-party timer library**: Adds dependency for functionality available in system frameworks
+- Single Timer approach: Insufficient precision for breath-hold measurement
+- Third-party timing libraries: Unnecessary complexity
+- Manual thread management: More error-prone
 
 ---
 
@@ -125,30 +128,61 @@ Use dual timer approach:
 **Status**: Accepted
 
 ### Context
-Need to organize app architecture for clean separation of concerns and testability.
+SwiftUI apps benefit from clear separation of concerns and reactive data flow. Need architecture that supports this while remaining simple for MVP.
 
 ### Decision
-Implement MVVM (Model-View-ViewModel) pattern using SwiftUI and ObservableObject.
+Implement MVVM (Model-View-ViewModel) pattern with ObservableObject ViewModels.
 
 ### Rationale
-- **SwiftUI Integration**: Natural fit with `@StateObject` and `@ObservedObject`
-- **Testability**: Business logic in ViewModels can be unit tested independently
-- **State Management**: Clear separation between UI state and business logic
-- **Timer Logic**: Complex timing logic belongs in ViewModels, not Views
-- **Reusability**: ViewModels can be shared between different Views if needed
+- Natural fit with SwiftUI's reactive programming model
+- Clear separation between UI (View) and business logic (ViewModel)
+- SwiftUI's `@StateObject` and `@ObservedObject` integrate perfectly
+- Simple enough for MVP while allowing future expansion
+- Testable architecture with mockable ViewModels
 
 ### Consequences
-- Each major screen has corresponding ViewModel
-- Views remain simple and focused on UI concerns
-- Timer and session logic concentrated in ViewModels
-- Unit testing strategy focuses on ViewModel behavior
+- Clean, maintainable code structure
+- Easy to unit test business logic
+- Natural reactive data flow
+- Slightly more boilerplate than simple @State approach
+- ViewModels must be carefully designed to avoid retain cycles
 
 ### Alternatives Considered
-- **MVC**: Poor separation of concerns for SwiftUI apps
-- **VIPER**: Overly complex for simple app with straightforward user flows
-- **Redux/TCA**: Unnecessary complexity for MVP with limited state management needs
+- Simple @State management: Too limited for session tracking
+- Redux/TCA: Overengineered for MVP scope
+- MVC: Doesn't leverage SwiftUI strengths
 
 ---
+
+## ADR-006: macOS to iOS Migration Fix
+**Date**: 2025-01-29  
+**Status**: Accepted
+
+### Context
+The project was initially configured for macOS but needed to be migrated to iOS. The build was failing due to macOS-specific code that doesn't exist in iOS.
+
+### Decision
+Remove macOS-specific `.windowStyle(HiddenTitleBarWindowStyle())` modifier from PauseApp.swift.
+
+### Rationale
+- iOS apps don't have traditional windows with title bars like macOS
+- The windowStyle modifier is macOS-only and causes compilation errors on iOS
+- iOS WindowGroup doesn't need additional styling for the basic MVP UI
+- Removing this code aligns with our iOS-first platform strategy (ADR-001)
+
+### Consequences
+- iOS build now succeeds without errors
+- Cleaner, platform-appropriate code
+- No visual impact on iOS as the modifier was non-functional anyway
+- Future macOS support would need different window styling approach
+
+### Implementation
+Removed line: `.windowStyle(HiddenTitleBarWindowStyle())` from PauseApp.swift
+
+### Alternatives Considered
+- Conditional compilation (#if os(macOS)): Unnecessary complexity for iOS-only target
+- Custom window styling: Not needed for MVP scope
+- Keep as comment: Adds confusion without benefit
 
 ## Template for Future ADRs
 

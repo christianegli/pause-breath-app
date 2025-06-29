@@ -7,6 +7,5 @@ struct PauseApp: App {
         WindowGroup {
             ContentView()
         }
-        .windowStyle(HiddenTitleBarWindowStyle())
     }
 }
